@@ -26,6 +26,12 @@ android {
     buildFeatures {
         compose = true
     }
+
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
+    }
 }
 
 dependencies {
@@ -58,7 +64,11 @@ dependencies {
 
     debugImplementation(libs.androidx.compose.ui.tooling)
 
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(platform("org.junit:junit-bom:5.11.3"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("io.mockk:mockk:1.13.13")
+    testImplementation("app.cash.turbine:turbine:1.1.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2")
 }
 
