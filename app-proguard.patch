@@ -1,0 +1,10 @@
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -6,0 +7 @@
++    id("io.github.rudradave1.proguardlint")
+@@ -27,0 +29,5 @@
++    configure<io.github.rudradave1.proguardlint.ProguardLintExtension> {
++        dangerZones = listOf("com.rudradave.composeproductiontemplate")
++        failOnError = true
++    }
++

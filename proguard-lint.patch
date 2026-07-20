@@ -1,0 +1,4 @@
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -6,0 +7 @@
++    id("io.github.rudradave1.proguardlint") version "0.1.0" apply false

@@ -1,0 +1,8 @@
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -34,0 +35,5 @@
++
++proguardLint {
++    dangerZones = listOf("com.rudradave.composeproductiontemplate")
++    failOnError = true
++}

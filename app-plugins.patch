@@ -1,0 +1,4 @@
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -6,0 +7 @@
++    id("io.github.rudradave1.proguardlint")

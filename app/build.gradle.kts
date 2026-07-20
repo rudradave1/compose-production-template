@@ -4,6 +4,21 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.compose.compiler)
+    id("io.github.rudradave1.proguardlint")
+}
+
+proguardLint {
+    // Exclude root package entry points from audit
+    dangerZones.set(setOf("com.rudradave.composeproductiontemplate.features", "com.rudradave.composeproductiontemplate.core"))
+    failOnError.set(true)
+}
+
+tasks.withType<io.github.rudradave1.proguardlint.ProguardLintTask>().configureEach {
+    val buildDir = layout.buildDirectory
+    mappingFile.set(buildDir.file("outputs/mapping/release/mapping.txt"))
+    seedsFile.set(buildDir.file("outputs/mapping/release/seeds.txt"))
+    // Change: dependsOn explicitly links the task as an input provider
+    dependsOn("minifyReleaseWithR8")
 }
 
 android {
@@ -25,7 +40,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

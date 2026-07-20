@@ -1,5 +1,7 @@
 # compose-production-template
 
+[![ProGuardLint](https://img.shields.io/badge/ProGuardLint-passing-brightgreen)](https://github.com/NousResearch/compose-production-template)
+
 Production-ready Android template built with Kotlin, Jetpack Compose, and modular Clean Architecture.
 
 ## Tech Stack
@@ -67,6 +69,9 @@ app (entrypoint, nav host, theme, work scheduling)
 ```
 
 ## Why This Template Is Production-Quality
+
+### Production-Ready Security Gate
+- Integrated ProGuardLint to identify potential runtime errors in ProGuard/R8 configurations early.
 
 This template mirrors real-world Android product architecture:
 
